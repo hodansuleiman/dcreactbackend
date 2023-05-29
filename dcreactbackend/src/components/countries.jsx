@@ -19,7 +19,7 @@ const Countries = () => {
   };
 
   const submitHandler = (e) => {
-    const url = `https://restcountries.com/v3.1/name/${inputSearch}`;
+    const url = `https://restcountries.com/v3.1/all`;
     fetchCountryData(url);
   };
 
