@@ -41,7 +41,17 @@ const Countries = () => {
           <button onClick={() => setShowDetails(!showDetails)}>
             Show Details
           </button>
-          {showDetails && <div>details stuff</div>}
+          {showDetails && (
+            <div>
+              <img src={countries.flags.png} alt={countries.name.official} />
+              <h3> {countries.name.official}</h3>
+              <h4>
+                Population: <span>{countries.population}</span>
+              </h4>
+              <h4> Region:{countries.region}</h4>
+              {countries.capital && <h4> Captial: {countries.capital[0]}</h4>}
+            </div>
+          )}
         </div>
       )}
     </>
