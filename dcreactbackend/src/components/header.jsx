@@ -1,18 +1,32 @@
 import React from "react";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
+import { NavLink } from "react-router-dom";
 
-const header = () => {
+// import DarkModeIcon from "@mui/icons-material/DarkMode";
+
+const Header = () => {
   return (
-    <div className="header">
-      <div className="header_container">
-        <h2 className="logo">Where in the world</h2>
-        <div className="switch_mode">
-          <DarkModeIcon />
-          <h3>Dark Mode</h3>
-        </div>
+    <header>
+      <div className="y-wrap">
+        <nav>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="Quiz">Quiz1</NavLink>
+        </nav>
       </div>
-    </div>
+    </header>
   );
 };
+export default Header;
 
-export default header;
+// const header = () => {
+//   return (
+//     <div className="header">
+//       <div className="header_container">
+//         <h2 className="logo">Where in the world</h2>
+//         <div className="switch_mode">
+//           <DarkModeIcon />
+//           <h3>Dark Mode</h3>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };

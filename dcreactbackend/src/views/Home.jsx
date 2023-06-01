@@ -1,0 +1,9 @@
+import Countries from "../components/Countries";
+
+export default function Home() {
+  return (
+    <div className="app">
+      <Countries />
+    </div>
+  );
+}
