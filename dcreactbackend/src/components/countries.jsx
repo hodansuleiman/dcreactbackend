@@ -4,24 +4,34 @@ import { Link } from "react-router-dom";
 const Countries = () => {
   const [countries, setCountries] = useState();
   const [inputSearch, setInputSearch] = useState("");
-  const [showDetails, setShowDetails] = useState(false);
+  // const [showDetails, setShowDetails] = useState(false);
+  const [selectedContinent, setSelectedContinent] = useState("all");
 
-  const fetchCountryData = async (url) => {
+  const fetchCountryData = async (url, filter = true) => {
     const response = await fetch(url);
     const data = await response.json();
 
-    console.log("?", data);
+    // console.log("?", data);
 
-    //filtering data
-    let filterCountries = [];
-    data.map((d) => {
-      if (d.name.common.includes(inputSearch)) {
-        filterCountries.push(d);
-      }
-    });
-    //inputSearch
-    console.log("filtered", filterCountries);
-    setCountries(filterCountries);
+    if (filter) {
+      let filterCountries = []; //empty array
+      data.forEach((d) => {
+        const countryName = d.name.common.toLowerCase(); // data name lowercase
+        const searchValue = inputSearch.toLowerCase();
+        if (countryName.includes(searchValue)) {
+          // if the inputname includes search value push in the data
+          filterCountries.push(d);
+        }
+      });
+
+      // console.log("filtered", filterCountries);
+      setCountries(filterCountries);
+    } else {
+      // console.log("data", data);
+      setCountries(data);
+    }
+
+    // Filtering data
   };
 
   useEffect(() => {}, []); // fetch data once on load
@@ -30,22 +40,37 @@ const Countries = () => {
     setInputSearch(e.target.value);
   };
 
+  // For filtering continents section
   const dropdownHandler = (e) => {
+    // Filter continent == e.target.value
+    const continent = e.target.value;
+    setSelectedContinent(continent);
     console.log("dropdown", e.target.value);
-
-    //fetch
-    //filter contienent == e.target.value
-    //push to a array
-    //setCoutnries(new arra)
+    // What I need to work on next
+    const url = `https://restcountries.com/v3.1/region/${continent}`; //    // Fetch
+    // Push to an array
+    // setCoutnries(new array)
+    if (continent === "all") {
+      // Fetch all countries
+      fetchCountryData(url, false);
+    } else {
+      // Fetch countries by selected continent
+      fetchCountryData(url);
+    }
   };
 
   const submitHandler = (e) => {
+    e.preventDefault(); // Prevent form submission
     const url = `https://restcountries.com/v3.1/all`;
-    fetchCountryData(url);
-  };
 
-  // Return the JSX for displaying country details
-  // what we would lke to return
+    if (inputSearch.trim() === "") {
+      // Fetch all countries
+      fetchCountryData(url), false;
+    } else {
+      // Fetch and filter based on input search
+      fetchCountryData(`${url}?name=${inputSearch}`);
+    }
+  };
 
   return (
     <>
@@ -72,51 +97,27 @@ const Countries = () => {
       </div>
 
       {countries &&
-        countries.map((countries) => {
+        countries.map((country) => {
           return (
-            <div>
-              <img src={countries.flags.png} alt={countries.name.official} />
-              <h3> {countries.name.official}</h3>
+            <div key={country.name.common}>
+              <img src={country.flags.png} alt={country.name.official} />
+              <h3>{country.name.official}</h3>
               <h4>
-                Population: <span>{countries.population}</span>
+                Population: <span>{country.population}</span>
               </h4>
-              <h4> Region:{countries.region}</h4>
-              {countries.capital && <h4> Captial: {countries.capital[0]}</h4>}
+              <h4>Region: {country.region}</h4>
+              {country.capital && <h4>Capital: {country.capital[0]}</h4>}
               <div>
-                {countries.borders.map((b) => {
-                  return <div>{b}</div>;
-                })}
+                {country.borders &&
+                  country.borders.map((border) => {
+                    return <div key={border}>{border}</div>;
+                  })}
               </div>
-              {/* <button onClick={() => setShowDetails(!showDetails)}>
-                Show Details
-              </button>
-              {showDetails && (
-                <div>
-                  <img
-                    src={countries.flags.png}
-                    alt={countries.name.official}
-                  />
-                  <h3> {countries.name.official}</h3>
-                  <h4>
-                    Population: <span>{countries.population}</span>
-                  </h4>
-                  <h4> Region:{countries.region}</h4>
-                  {countries.capital && (
-                    <h4> Captial: {countries.capital[0]}</h4>
-                  )}
-                </div>
-              )} */}
             </div>
           );
         })}
     </>
   );
 };
-
-/**
- * get all countries by a https://restcountries.com/v3.1/all
- * input serach filter by countries
- * dropdown filter continenent
- */
 
 export default Countries;
