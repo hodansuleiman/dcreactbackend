@@ -6,8 +6,8 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Quiz1 from "./views/Quiz1";
 import Home from "./views/Home";
+import QuizGame from "./components/Quizpage";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/quiz1" element={<Quiz1 />} />
+        <Route path="/quiz" element={<QuizGame />} />
       </Routes>
     </>
   );

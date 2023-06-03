@@ -9,7 +9,6 @@ const Header = () => {
       <div className="y-wrap">
         <nav>
           <NavLink to="/">Home</NavLink>
-          <NavLink to="Quiz">Quiz1</NavLink>
         </nav>
       </div>
     </header>
