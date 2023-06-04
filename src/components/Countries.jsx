@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const Countries = () => {
   const [countries, setCountries] = useState();
   const [inputSearch, setInputSearch] = useState("");
+
   // const [showDetails, setShowDetails] = useState(false);
   const [selectedContinent, setSelectedContinent] = useState("all");
 
@@ -47,14 +48,16 @@ const Countries = () => {
     setSelectedContinent(continent);
     console.log("dropdown", e.target.value);
     // What I need to work on next
-    const url = `https://restcountries.com/v3.1/region/${continent}`; //    // Fetch
+    let url = "";
     // Push to an array
     // setCoutnries(new array)
     if (continent === "all") {
       // Fetch all countries
+      url = `https://restcountries.com/v3.1/all`; //    // Fetch
       fetchCountryData(url, false);
     } else {
       // Fetch countries by selected continent
+      url = `https://restcountries.com/v3.1/region/${continent}`; //    // Fetch
       fetchCountryData(url);
     }
   };
@@ -86,6 +89,7 @@ const Countries = () => {
         </div>
         <div className="select_region">
           <select onChange={dropdownHandler}>
+            <option value="-">-</option>
             <option value="all">All</option>
             <option value="africa">Africa</option>
             <option value="america">Americas</option>
@@ -95,27 +99,28 @@ const Countries = () => {
           </select>
         </div>
       </div>
-
-      {countries &&
-        countries.map((country) => {
-          return (
-            <div key={country.name.common}>
-              <img src={country.flags.png} alt={country.name.official} />
-              <h3>{country.name.official}</h3>
-              <h4>
-                Population: <span>{country.population}</span>
-              </h4>
-              <h4>Region: {country.region}</h4>
-              {country.capital && <h4>Capital: {country.capital[0]}</h4>}
-              <div>
-                {country.borders &&
-                  country.borders.map((border) => {
-                    return <div key={border}>{border}</div>;
-                  })}
+      <div class="countryBox">
+        {countries &&
+          countries.map((country) => {
+            return (
+              <div key={country.name.common}>
+                <img src={country.flags.png} alt={country.name.official} />
+                <h3>{country.name.official}</h3>
+                <h4>
+                  Population: <span>{country.population}</span>
+                </h4>
+                <h4>Region: {country.region}</h4>
+                {country.capital && <h4>Capital: {country.capital[0]}</h4>}
+                <div className="borders">
+                  {country.borders &&
+                    country.borders.map((border) => {
+                      return <div key={border}>{border}</div>;
+                    })}
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+      </div>
     </>
   );
 };
