@@ -1,40 +1,14 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
 .y-wrap{
   display: flex;
   justify-content: center;
+}
+Header{
+  background-color: cadetblue;
+  padding: 20px;
+}
+Header a{
+  color: white;
 }
 .countryBox{
   margin-top: 20px;
@@ -46,7 +20,44 @@
 
 }
 .countryBox > div{
-  width: 32%;
+  width: 30%;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgba(0,0,0,.5);
+}
+
+.Countries .inputs{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.Countries .inputs input{
+  padding: 10px;
+  border: none;
+  width: 200px;
+  border-radius: 10px 0px 0px 10px;
+}
+.Countries .search-input{
+  display: flex;
+}
+.Countries .inputs button{
+  height: 100%;
+  padding: 10px;
+  border: none;
+  background-color: cadetblue;
+  color: white;
+  border-radius: 0px 10px 10px 0px;
+}
+.Countries select{
+  height: 100%;
+  padding: 10px 20px;
+  border: none;
+  background-color: cadetblue;
+  color: white;
+  border-radius: 10px 10px 10px 10px;
 }
 .countryBox img{
   max-height: 100px;
@@ -94,4 +105,41 @@ nav a{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.Question{
+  background-color: gray;
+  color: white;
+  padding: 10px;
+}
+.bannerWrapper{
+  height: 100vh;
+  width: 100vw;
+  /*margin: 0 auto;*/
+  background-size: contain;
+  background-position: center;
+
+  background-repeat: no-repeat;
+  color: white;
+}
+.banner{
+
+  width: 50%;
+}
+.bottom{
+  position: absolute;
+  left: 0;
+  bottom: 50px;
+}
+
+
+.Countries {
+    background-image: url("./Images/fullmap.jpeg");
+    min-height: 100vh;
+
+
+
+   /* Center and scale the image nicely */
+
+
+
 }

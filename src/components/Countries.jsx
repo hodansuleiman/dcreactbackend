@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import FullmapImg from "../Images/fullmap.jpeg";
+import CountryBox from "./CountryBox";
 
 const Countries = () => {
   const [countries, setCountries] = useState();
@@ -76,7 +78,7 @@ const Countries = () => {
   };
 
   return (
-    <>
+    <div className="Countries">
       <div className="inputs">
         <div className="search-input">
           <input
@@ -102,26 +104,10 @@ const Countries = () => {
       <div class="countryBox">
         {countries &&
           countries.map((country) => {
-            return (
-              <div key={country.name.common}>
-                <img src={country.flags.png} alt={country.name.official} />
-                <h3>{country.name.official}</h3>
-                <h4>
-                  Population: <span>{country.population}</span>
-                </h4>
-                <h4>Region: {country.region}</h4>
-                {country.capital && <h4>Capital: {country.capital[0]}</h4>}
-                <div className="borders">
-                  {country.borders &&
-                    country.borders.map((border) => {
-                      return <div key={border}>{border}</div>;
-                    })}
-                </div>
-              </div>
-            );
+            return <CountryBox country={country} />;
           })}
       </div>
-    </>
+    </div>
   );
 };
 
