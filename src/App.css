@@ -1,3 +1,9 @@
+.app{
+background-color: #FFFFF7;
+}
+body{
+  font-family: sans-serif;;
+}
 
 .y-wrap{
   display: flex;
@@ -6,10 +12,23 @@
 Header{
   background-color: cadetblue;
   padding: 20px;
+  height: 5vh;
 }
+
 Header a{
   color: white;
 }
+
+Footer{
+  background-color: cadetblue;
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5vh;
+}
+
+
 .countryBox{
   margin-top: 20px;
   display: flex;
@@ -17,7 +36,6 @@ Header a{
   gap: 40px 20px;
   justify-content: space-between;
   text-align: left;
-
 }
 .countryBox > div{
   width: 30%;
@@ -81,6 +99,7 @@ nav{
 nav a{
   text-decoration: none;
   font-weight: bold;
+  font-size: 20px;
 }
 .card {
   padding: 2em;
@@ -98,7 +117,7 @@ nav a{
   width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 }
 .right{
   width: 50%;
@@ -107,39 +126,102 @@ nav a{
   justify-content: space-between;
 }
 .Question{
-  background-color: gray;
+ background-color: cadetblue;
   color: white;
   padding: 10px;
+
+}
+/*if element is empty do this*/
+.Question:empty{
+  padding: 0px;;
+}
+
+.Question div, .gameOverButtons{
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+
+}
+
+.gameOverScreen {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.gameOverScreen img{
+  max-width: 900px;
+}
+.quizpg h3{
+  font-size: 40px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  gap: 10px;
+
+}
+.quizpg h3 img{
+  max-width: 100px;
 }
 .bannerWrapper{
-  height: 100vh;
+  min-height: 90vh;
   width: 100vw;
   /*margin: 0 auto;*/
-  background-size: contain;
-  background-position: center;
-
-  background-repeat: no-repeat;
+  
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.bannerWrapper img{
+  max-width: 900px;
 }
 .banner{
 
   width: 50%;
 }
 .bottom{
-  position: absolute;
-  left: 0;
-  bottom: 50px;
+
+  font-weight: bold;
+  color: #A0615F;
+  padding: 20px;
+  background-color: #FFFFF7;
+  max-width: 900px;
+  text-align: center;
+}
+.bottom > div{
+  line-height: 25px;
 }
 
 
 .Countries {
     background-image: url("./Images/fullmap.jpeg");
     min-height: 100vh;
+    opacity: 0.8;
+}
 
+.linkcontainer{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 10px;
 
+}
+a, .btn{
+  font-size: 13px;
+  height: 100%;
+  padding: 10px;
+  border: none;
+  background-color: cadetblue;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-weight: 400;
+  border-radius: 0px 10px 10px 0px;
+  
+}
 
-   /* Center and scale the image nicely */
-
-
-
+.quizpg{
+  background-color:#FFFFF7;;
 }

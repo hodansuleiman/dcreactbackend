@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import Header from "./components/header";
+import Footer from "./components/Footer";
 import SearchIcon from "@mui/icons-material/Search";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
@@ -21,6 +22,7 @@ function App() {
         <Route path="/countries" element={<Countries />} />
         <Route path="/quiz" element={<QuizGame />} />
       </Routes>
+      <Footer />
     </>
   );
 }

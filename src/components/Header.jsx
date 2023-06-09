@@ -1,8 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-// import DarkModeIcon from "@mui/icons-material/DarkMode";
-
 const Header = () => {
   return (
     <header>
@@ -17,17 +15,3 @@ const Header = () => {
   );
 };
 export default Header;
-
-// const header = () => {
-//   return (
-//     <div className="header">
-//       <div className="header_container">
-//         <h2 className="logo">Where in the world</h2>
-//         <div className="switch_mode">
-//           <DarkModeIcon />
-//           <h3>Dark Mode</h3>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };

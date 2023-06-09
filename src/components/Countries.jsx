@@ -8,9 +8,10 @@ const Countries = () => {
   const [inputSearch, setInputSearch] = useState("");
 
   // const [showDetails, setShowDetails] = useState(false);
-  const [selectedContinent, setSelectedContinent] = useState("all");
+  const [selectedContinent, setSelectedContinent] = useState("all"); // options
 
   const fetchCountryData = async (url, filter = true) => {
+    // default value
     const response = await fetch(url);
     const data = await response.json();
 
