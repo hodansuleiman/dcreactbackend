@@ -219,7 +219,7 @@ const QuizPage = () => {
     userSelect: "none",
     padding: grid * 2,
     margin: `0 0 ${grid}px 0`,
-    color: "orange", // Font color for the left side
+    color: "#A0615F", // Font color for the left side
     fontSize: "30px", // Font size for the left side
 
     // change background colour if dragging
@@ -236,7 +236,7 @@ const QuizPage = () => {
     width: "150px",
     height: "100px",
     border: isDraggingOver ? "solid 5px green" : "none",
-    color: "#A0615F",
+    color: "black",
     backgroundImage: `url("${img}")`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
