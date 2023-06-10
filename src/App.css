@@ -25,9 +25,22 @@ Footer{
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 5vh;
+  height: 10vh;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+ 
 }
-
+footer > div{
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+footer img{
+  width: 50px;
+}
 
 .countryBox{
   margin-top: 20px;
@@ -37,12 +50,28 @@ Footer{
   justify-content: space-between;
   text-align: left;
 }
+@media screen and (max-width: 600px) {
+  .countryBox{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .countryBox > div{
   width: 30%;
   background: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 2px 2px 2px rgba(0,0,0,.5);
+}
+@media screen and (max-width: 600px) {
+  .countryBox > div{
+    width: 80%;
+  }
+}
+.countryBox img{
+  width: 100%;
 }
 
 .Countries .inputs{
@@ -151,6 +180,9 @@ nav a{
 }
 .gameOverScreen img{
   max-width: 900px;
+}
+.quizpg{
+  min-height: 80vh;
 }
 .quizpg h3{
   font-size: 40px;

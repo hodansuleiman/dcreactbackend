@@ -236,6 +236,7 @@ const QuizPage = () => {
     width: "150px",
     height: "100px",
     border: isDraggingOver ? "solid 5px green" : "none",
+    color: "#A0615F",
     backgroundImage: `url("${img}")`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
@@ -278,6 +279,8 @@ const QuizPage = () => {
   return (
     <>
       <body className="quizpg">
+        {" "}
+        {/* set the class name of the body element to "quizpg" for styling purposes.  */}
         <h2>Score: {score}</h2>
         <h3>
           {message}
