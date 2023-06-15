@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Header from "./components/header";
+import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SearchIcon from "@mui/icons-material/Search";
 import reactLogo from "./assets/react.svg";
